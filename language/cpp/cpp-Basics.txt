@@ -1,0 +1,422 @@
+three ways for initialization
+int x=1;
+int x(1);
+int x{1};
+
+
+Using auto if dont know the datatype;
+auto a="4";
+
+
+
+bool foo=true;
+bool tell=false;
+int* p=nullptr;
+
+
+basic i/p and o/p
+
+cin
+cout
+cerr standard error(o/p) stream)
+clog standard logging (output) stream
+
+cin will only extract the word till space or endline line to take all sentence use getline
+getline(cin,mystr);
+
+
+Using stringstream
+------------------
+
+A standard library <sstream>
+defines a type called stringstream that allows a string to be treated as stream
+
+
+string str("1234");
+int abc;
+stringstream(str)>>abc;//converted into int
+
+
+Ranged based for loop
+
+for(decalaration :range) statement;
+
+string str("hello";
+for(char c:str)
+{
+	cout<<c;
+}  
+
+
+
+Functions
+---------
+
+pass by value= copying a value
+pass by reference = duplicating the value
+	That means you are actually been modifying the variable rather than copying it with another variable and modifying
+	int add(int& a,int& b)
+		return a+1;
+	it actually modify the variable in which it is defined
+	so we pass the variable as reference with & at the begin
+
+
+<-------pass by reference help in many situation consider a situation where to large string is passed through value .So itwould be difficult for a program to copy the value of the string to a variable 
+then do the operation. So using pass by reference would be better choice. -------->
+
+----------function with reference parameter are generally perceived as functions that modify the aruguement passed,to guarantee that its reference are not going to be modified by a function we use a 
+const before string,the function would be forbidden to modify the value.---------
+
+	string concatenate(const string& a,const string& b)
+	{
+		return a+b;
+	}
+
+~~~~~~~we can give default value for the function parameter
+	void add(int a,int b=7)
+
+
+
+overloads and templates
+-----------------------
+
+overload defininf to function with same name .with different datatypes.
+
+
+Templating
+----------
+
+	template <class T>
+	T sum(T a,T b)
+	{
+		T result;
+		result = a+b;
+		return result;
+	}
+	void main(){
+	k=sum<int>(i,j);
+	j=sum<float>(j,k);
+	}
+
+	--------------------------
+
+	template <class T, class U>
+	bool are_equal (T a, U b)
+	{
+  		return (a==b);
+	}
+	
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	template <class T, int N>
+	T fixed_multiply (T val)
+	{
+  		return val * N;
+	}
+
+	int main() {
+  	std::cout << fixed_multiply<int,2>(10) << '\n';
+  	std::cout << fixed_multiply<int,3>(10) << '\n';
+	}
+	~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Namespace
+---------
+		
+	namespace myNamespace
+	{
+  		int a, b;
+		int value(){return 0;}
+	}
+
+	main()
+	{
+		using myNamespace::x;
+		cout<<x;
+		cout<<myNamespace::a;
+		mynamespace::value();
+	}
+
+
+
+Storage
+-------
+
+	There are 2 types of storage 
+	1. global variable has a static storage that means address would stay until all the lines code executed that is it cannot be shared with other variablwe
+	2. local  variable has a autamatic storage that means it would stay till the block of line is executed completely and it would used by other variable
+	Variable with static storage are automatically intiliazed to zero
+	Variable with automatic storage whic are explicitly initialized  are left uninitialized
+	
+	
+Array
+-----
+
+	c++ has a library named array to overcome some issue of c array problem
+	-#include <array>
+	using namepsace std;
+	int main()
+	{
+	array<int,3> myarray{30,40,50}
+	for(int i=0;i>myarray.size();++i)
+		++myarray[i];
+	for(int elem:myarray)
+		cout<<elem;
+	 
+
+String
+------
+
+	converting chatracter into string
+	char myntcs[]="some text";
+	string mystring=myntcs;//char into string;
+	mystring.c_str();//converting string into character string
+	
+
+Pointer
+-------
+	
+	Address of the operator(&) address of operator
+	-------------------------
+	
+	int a=&abc;
+	
+	Dereference Operator(*) :value pointed by
+	--------------------
+	abc=34;
+	foo=&abc;
+	value=*foo// initialize 34 init
+	
+	Declaring pointer
+	-----------------
+	
+	It has a very different properties when it pintes to char than when it points to an int or float.
+	
+	type *name;
+	
+	Note:
+		the asterick used when decalring a pointer only means it is a pointer and should not be confused with dereference operator.They both are totally different thing
+		
+	int firstvalue,secondvalue;
+	int * mypointer;
+	mypointer=&firstvalue;
+	*mypointer=10;
+	
+	Pointer arithmetic
+	------------------
+
+	*p++   // same as *(p++): increment pointer, and dereference unincremented address
+	*++p   // same as *(++p): increment pointer, and dereference incremented address
+	++*p   // same as ++(*p): dereference pointer, and increment the value it points to
+	(*p)++ // dereference pointer, and post-increment the value it points to 
+
+	int x;
+      	int * p1 = &x;  		// non-const pointer to non-const int
+	const int * p2 = &x;  		// non-const pointer to const int
+      	int * const p3 = &x;  		// const pointer to non-const int
+	const int * const p4 = &x;  	// const pointer to const int 
+
+	pointer to pointer
+	------------------
+
+	c++ allows pointer to point another pointer
+	char a;
+	char * b;
+	char ** c;
+	a='z';
+	b=&a;
+	c=&b;
+	
+	note:
+		c is of type char** and a value of 8092
+		*c is of type char* and a value of 7230
+		**c is of type char and a value of 'z'
+	
+	void pointer
+	------------
+	
+
+
+	Pointer to functions
+	--------------------
+
+	
+
+
+Dynamic Memory
+--------------
+	
+	Operator new and new[]
+
+	int * foo;
+	foo=new int[5];
+	
+	Operator delete and delete[]
+
+Example of new operator;
+	
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	
+int main ()
+{
+  int i,n;
+  int * p;
+  cout << "How many numbers would you like to type? ";
+  cin >> i;
+  p= new (nothrow) int[i];
+  if (p == nullptr)
+    cout << "Error: memory could not be allocated";
+  else
+  {
+    for (n=0; n<i; n++)
+    {
+      cout << "Enter number: ";
+      cin >> p[n];
+    }
+    cout << "You have entered: ";
+    for (n=0; n<i; n++)
+      cout << p[n] << ", ";
+    delete[] p;
+  }
+ 
+	
+	
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In C we used malloc ,calloc,realoc,free etc which were under the library stdlib.In Cpp we can use those function with cstdlib.
+
+
+Data Structure
+--------------
+
+A data structure is group of data element  grouped together  under one name.
+
+struct struct_name{
+	datatype name;
+	datatype name;
+	datatype name;
+}object_name;
+
+or can be given as a array of struct
+object_name[3];
+
+Pointer to Structure
+--------------------
+
+struct_name * movie;
+it is assigned through movie->title
+
+
+The arrow operator (->) is a dereference operator that is used exclusively with pointers to objects that have members. 
+
+equivalent to :- (*movie).title
+
+Nesting Structure
+-----------------
+
+
+
+
+Other datatypes
+---------------
+
+	Type aliases
+	------------
+		typedef int c;
+		typedef char A;
+		
+	using(in cpp)
+	-----
+		using C=char;
+		using WORD=unsigned int;
+		
+Union
+-----
+
+	union type_name{
+		member type member_name;
+		...
+		...
+		}mytypes;
+
+Anonymous Union
+---------------
+
+
+
+
+
+Enumerated Type
+---------------
+	are defined with a set of custom identifiers known as enumerators
+
+	enum color{red,yello,green};
+	
+Enumerated types with enum class
+--------------------------------
+
+	enum class Colors{black,blue}
+	
+
+Classes
+-------
+
+	class class_name{
+		access modifier:
+			member
+			....
+			....
+		access modifier:
+			member
+			....
+			....
+			...
+
+	}
+private is the default access level
+
+// classes example
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    int width, height;
+  public:
+    void set_values (int,int);
+    int area() {return width*height;}
+};
+
+void Rectangle::set_values (int x, int y) {
+  width = x;
+  height = y;
+}
+
+int main () {
+  Rectangle rect;
+  rect.set_values (3,4);
+  cout << "area: " << rect.area();
+  return 0;
+}
+
+
+
+
+virtual
+-------
+
+
+
+
+
+
+
+unordered_map
+-------------
+
+
+
+
+
+
+
+
+stl
+---

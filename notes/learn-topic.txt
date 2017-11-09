@@ -1,0 +1,41 @@
+CLASS 1- CLASS 4
+
+Basics Of Competitive Coding
+Various types of errors
+Recursion
+Variation Of Binary Search & Merge Sort
+Number Theory
+Modulo Operations
+Euclid’s & Extended Euclid’s Algorithm
+Sieve of Eratosthenes
+Matrix Exponentiation
+Fermat’s Little Theorem
+
+Class 5 - Class 8
+
+Basics Of Dynamic Programming
+Simple Array DP
+Simple Matrix DP
+2D Matrix DP
+Suffix/Prefix DP
+Basic Graph Representation
+DFS, BFS
+Dijkstra
+Shortest Path
+DP Tricky
+Multiplication DP
+DP Plus Bitmasking
+
+Class 9 - Class 13
+
+Graphs + Dynamic Programming Questions
+Game Theory
+Probability
+Range Minimum Query Problems
+Segment Tree
+Segment Tree With Lazy Propagation
+Fenwick Tree
+Space Table
+Computational Geometry
+Miscellaneous Topics
+Greedy Algorithms

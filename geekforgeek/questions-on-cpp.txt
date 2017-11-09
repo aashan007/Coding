@@ -1,0 +1,30 @@
+1. -> Conditionally assign a value without using conditional and arithmetic operators
+
+	a=10 b=5 if x=0 print a or a=1 print b
+
+2. -> What happens if loop till Maximum of Signed and Unsigned in C/C++?
+
+3. -> How to print below heart pattern in C?
+
+    AAAAAAA        AAAAAA
+   AAAAAAAAA      AAAAAAAA
+  AAAAAAAAAAA    AAAAAAAAAA
+ AAAAAAAAAAAAA  AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ BBBBBBBBBBBBBBBBBBBBBBBBBBB
+  BBBBBBBBBBBBBBBBBBBBBBBBB
+   BBBBBBBBBBBBBBBBBBBBBBB
+    BBBBBBBBBBBBBBBBBBBBB
+     BBBBBBBBBBBBBBBBBBB
+      BBBBBBBBBBBBBBBBB
+       BBBBBBBBBBBBBBB
+        BBBBBBBBBBBBB
+         BBBBBBBBBBB
+          BBBBBBBBB
+           BBBBBBB
+            BBBBB
+             BBB
+              B
+
+4. -> C Program to print numbers from 1 to N without using semicolon?

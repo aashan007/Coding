@@ -1,0 +1,199 @@
+use int main(){..}
+or
+use int main(int argc,char* argv){....}
+
+MAny compiler used to ignore the return type but that does not mean we can legalise the use of void main in a function
+
+There are 4 main types of preprocessor directives:
+
+1.) Macros
+    ------
+
+	Macros: Macros are piece of code in a program which is given some name. Whenever this name is encountered by the compiler the compiler replaces the name with the actual piece of code. The
+‘#define’ directive is used to define a macro. Let us now understand macro definition with the help of a program:
+#include<iostream>
+
+//macro definition
+#define LIMIT 5
+int main()
+{
+    for(int i=0; i < LIMIT; i++)
+    {
+        std::cout<<i<<"\n";
+    }
+
+    return 0;
+}
+
+//The word ‘LIMIT’ in macro definition is called macro template and ‘5’ is macro expansion.
+
+Macros with arguments:
+---------------------
+
+We can also pass arguments to macros. Macros defined with arguments works similarly as functions. Let us understand this with a program:
+
+#include<iostream>
+
+//macro with parameter
+#define AREA(l,b) (l*b)
+int main()
+{
+    int l1 = 10, l2=5, area;
+
+    area = AREA(l1,l2);
+
+    std::cout<<"Area of rectangle is: "<<area;
+
+    return 0;
+}
+
+
+2.) File Inclusion
+    --------------
+
+	Header File or Standard files:
+        ------------------------------
+ These files contains definition of pre-defined functions like printf(), scanf() etc. These files must be included for working with these functions. Different
+function are declared in different header files. For example standard I/O funuctions are in ‘iostream’ file whereas functions which perform string operations are in ‘string’ file.
+Syntax:
+#include< file_name >
+where file_name is the name of file to be included. The ‘<‘ and ‘>’ brackets tells the compiler to look for the file in standard directory.
+
+	user defined files:
+	------------------
+When a program becomes very large, it is good practice to divide it into smaller files and include whenever needed. These types of files are user defined files. These files can be
+included as:
+#include"filename"
+
+3.) Conditional Compilation
+    -----------------------
+
+	 Conditional Compilation directives are type of directives which helps to compile a specific portion of the program or to skip compilation of some specific part of the program based on some
+conditions. This can be done with the help of two preprocessing commands ‘ifdef‘ and ‘endif‘.
+Syntax:
+ifdef macro_name
+    statement1;
+    statement2;
+    statement3;
+    .
+    .
+    .
+    statementN;
+endif
+
+//If the macro with name as ‘macroname‘ is defined then the block of statements will execute normally but if it is not defined, the compiler will simply skip this block of statements.
+
+4.) Other directives:-
+    -----------------
+
+	#undef Directive:
+	-----------------
+ 	The #undef directive is used to undefine an existing macro. This directive works as:
+	#undef LIMIT
+	Using this statement will undefine the existing macro LIMIT. After this statement every “#ifdef LIMIT” statement will evaluate to false.
+
+
+
+	#pragma Directive:
+	------------------
+	 This directive is a special purpose directive and is used to turn on or off some features. This type of directives are compiler-specific i.e., they vary from compiler to
+	compiler. Some of the #pragma directives are discussed below:
+
+	#pragma startup and #pragma exit:
+	--------------------------------
+
+These directives helps us to specify the functions that are needed to run before program startup( before the control passes to main()) and just before program
+exit (just before the control returns from main()).
+Note: Below program will not work with GCC compilers.
+Look at the below program:
+#include<stdio.h>
+
+void func1();
+void func2();
+
+#pragma startup func1
+#pragma exit func2
+
+void func1()
+{
+    printf("Inside func1()\n");
+}
+
+void func2()
+{
+    printf("Inside func2()\n");
+}
+
+int main()
+{
+    printf("Inside main()\n");
+
+    return 0;
+}
+
+
+//The above code will produce the output as given below when run on GCC compilers:
+
+#include<stdio.h>
+
+void func1();
+void func2();
+
+void __attribute__((constructor)) func1();
+void __attribute__((destructor)) func2();
+
+void func1()
+{
+    printf("Inside func1()\n");
+}
+
+void func2()
+{
+    printf("Inside func2()\n");
+}
+
+int main()
+{
+    printf("Inside main()\n");
+
+    return 0;
+}
+//This code will work in gcc
+
+
+	#pragma warn Directive:
+	----------------------
+
+ This directive is used to hide the warning message which are displayed during compilation.
+We can hide the warnings as shown below:
+#pragma warn -rvl: This directive hides those warning which are raised when a function which is supposed to return a value does not returns a value.
+#pragma warn -par: This directive hides those warning which are raised when a function does not uses the parameters passed to it.
+#pragma warn -rch: This directive hides those warning which are raised when a code is unreachable. For example: any code written after the return statement in a function is unreachable.
+
+
+
+
+
+Reference vs pointer
+--------------------
+int a=10;
+int& ref=a;
+
+
+References are less powerful than pointers
+1) Once a reference is created, it cannot be later made to reference another object; it cannot be reseated. This is often done with pointers.
+2) References cannot be NULL. Pointers are often made NULL to indicate that they are not pointing to any valid thing.
+3) A reference must be initialized when declared. There is no such restriction with pointers
+
+References are safer and easier to use:
+1) Safer: Since references must be initialized, wild references like wild pointers are unlikely to exist. It is still possible to have references that don’t refer to a valid location (See questions 5
+and 6 in the below exercise )
+2) Easier to use: References don’t need dereferencing operator to access the value. They can be used like normal variables. ‘&’ operator is needed only at the time of declaration. Also, members of an
+object reference can be accessed with dot operator (‘.’), unlike pointers where arrow operator (->) is needed to access members.
+
+
+
+What is the difference between size_t and int
+---------------------------------------------
+
+size_t is mainly used to implement the size of an element.or we can say size_t and int are not the same.when int is dependent of architecture size_t not.

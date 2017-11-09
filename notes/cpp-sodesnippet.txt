@@ -1,0 +1,17 @@
+C/C++•Operators can be overloaded. •Memory management (allocation): Static (at compile time, word static), Automatic (declared with class name), Dynamic(using new/malloc() and delete/free()), Garbage 
+Collection (with specific libraries).•Templates are equivalent to Java generics.•Encapsulation (public, protected, private, can provide access to “friend” classes).•Multiple inheritance.•Java Interfaces 
+= abstract base class (class with only virtual functions). •C++ is a statically typed, compiled, general purpose, case-sensitive, free-form programming language that supportsprocedural, object-oriented, 
+and generic programming.•Types: bool, char, int, float, double, void, wchar_t. Modifiers: signed, unsigned, long, short.•Syntax similar to Java (while, for, if, case (expression has to be integral or 
+enumerated)).#include <iostream> using namespace std; // Base class class Shape {    public:       void setWidth(int w)       {  width = w;       }       void setHeight(int h)       { height = h;       
+}    protected:       int width;       int height; }; // Derived class class Rectangle: public Shape {    public:       int getArea()       {          return (width * height);       } }; int main(void) 
+{    Rectangle Rect;    Rect.setWidth(5);    Rect.setHeight(7);    // Print the area of the object.    cout << "Total area: " << Rect.getArea() << endl; By Christian Vielma (www.librethinking.com). 
+Released under Creative Commons Attribution-ShareAlike License
+
+   return 0; }//Only C from here. From: http://www.cprogramming.com#include <stdio.h> int main() {     int this_is_a_number;    printf( "Please enter a number: " ); //print to console    scanf( "%d", 
+&this_is_a_number ); //read from console    printf( "You entered %d", this_is_a_number );     return 0; } //Defines a function that returns an intint mult (int x, int y) { return x * y; }/* one pointer, 
+one regular int */ int *pointer1, nonpointer1; /* two pointers */ int *pointer1, *pointer2;//Pointers exampleint main() {     int x;            /* A normal integer*/     int *p;           /* A pointer 
+to an integer ("*p" is an integer, so p                        must be a pointer to an integer) */     p = &x;           /* Read it, "assign the address of x to p" */     scanf( "%d", &x );          /* 
+Put a value in x, we could also use p here */     printf( "%d\n", *p ); /* Note the use of the * to get the value */ }//Assign/free memoryint *ptr = malloc( sizeof(*ptr) );free( ptr );ptr = &structure; 
+/* Yes, you need the & when dealing with                            structures and using pointers to them*/     printf( "%d\n", ptr->x );  /* The -> acts somewhat like the * when                                    
+it is used with pointers                                     It says, get whatever is at that memory                                    address Not "get what that memory address                                    
+is"*/
