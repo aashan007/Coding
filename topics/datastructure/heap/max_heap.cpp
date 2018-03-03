@@ -13,7 +13,7 @@ void max_heap(int * a,int i,int n){
     largest=i;
   }
 
-  if(right<=n && a[right]>a[i]){
+  if(right<=n && a[right]>a[largest]){
     largest=right;
   }
   if(largest!=i){
