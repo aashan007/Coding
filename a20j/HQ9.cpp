@@ -8,7 +8,7 @@ int main(){
     bool flag=false;
     for(int i=0;i<s.size();i++){
         //cout<<s[i]<<" ";
-        if(s[i]=='H' || s[i]=='Q' || s[i]=='9' || s[i]=='+'){
+        if(s[i]=='H' || s[i]=='Q' || s[i]=='9' ){
             flag=true;
             break;
         } 
