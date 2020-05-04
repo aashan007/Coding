@@ -1,3 +1,3 @@
 # coding
 
-Puting everything related to coding and solution of the same.
+Puting everything related to Copetitive coding and it's solution.
