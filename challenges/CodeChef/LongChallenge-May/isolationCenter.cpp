@@ -26,7 +26,6 @@ int main(){
                     count+=a[i]-temp;
                 }
             }
-            cout<<count<<endl;
         }
     }
 }
