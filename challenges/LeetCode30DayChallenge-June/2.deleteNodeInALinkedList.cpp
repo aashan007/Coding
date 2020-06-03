@@ -1,12 +1,16 @@
- TreeNode* invertTree(TreeNode* root) {
-        if(root==NULL){
-            return NULL;
+void deleteNode(ListNode* node) {
+        ListNode * curr=node;
+        ListNode * nxt=node->next;
+        ListNode * prev=NULL;
+        while(nxt!=NULL){
+            curr->val=nxt->val;
+            prev =curr;
+            curr = curr->next;
+            nxt = nxt->next;
         }
-        TreeNode * temp = root->left;
-        root->left=invertTree(root->right);
-        root->right=invertTree(temp);
+        prev->next=NULL;
         
-        return root;
+        
         
         
     }
