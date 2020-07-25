@@ -11,7 +11,7 @@ public:
         }
         path.pop_back();
     }
-    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+    vector <vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         vector<vector<int> >result;
         vector <int>path;
         dfs(graph,result,path,0);
