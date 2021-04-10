@@ -1,3 +1,3 @@
-# coding
+# Solution for all the competitive coding problems
 
-Puting everything related to Copetitive coding and it's solution.
+All the solutions are in CPP
